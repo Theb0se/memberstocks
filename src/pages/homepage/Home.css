@@ -1,0 +1,131 @@
+.home {
+  padding: 8px 150px;
+  color: var(--white);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+.homeHeading h1 {
+  color: var(--white);
+  font-size: 36px;
+  font-weight: 400;
+}
+.homeHeading h1 span {
+  color: var(--orng);
+  font-weight: 500;
+}
+.desc {
+  font-family: var(--kanit);
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.loginForm {
+  background-color: var(--gray);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+  max-width: 600px;
+  width: 600px;
+}
+.loginForm h2 {
+  font-size: 22px;
+  color: var(--orng);
+  padding-bottom: 10px;
+}
+.loginForm input {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  font-size: "";
+  font-weight: inherit;
+  height: 48px;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 2px 14px;
+}
+.loginForm .pass {
+  position: relative;
+}
+.loginForm label {
+  padding-left: 3px;
+  font-size: 14px;
+  color: var(--orng);
+}
+
+.loginForm button {
+  height: 40px;
+  background-color: var(--orng);
+  width: 100%;
+  border-radius: 9px;
+  margin-top: 30px;
+}
+.forget {
+  font-size: 14px;
+  color: var(--orng);
+  font-weight: 500;
+  position: absolute;
+  right: 10px;
+  top: 38px;
+}
+.signup p {
+  margin-top: 20px;
+  font-size: 14px;
+  padding-left: 4px;
+}
+.signup a {
+  color: var(--orng);
+  padding-left: 4px;
+}
+.totalMember {
+  background-color: var(--gray);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50px;
+  max-width: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+.totalMember .icon {
+  margin-right: 10px;
+  border-radius: 9px;
+  padding: 10px 25px;
+  font-size: 52px;
+  color: var(--orng);
+  background: rgba(255, 131, 85, 0.1);
+}
+.totalMember .text h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--orng);
+}
+.totalMember .text{
+  width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .home {
+    padding: 8px 15px;
+    padding-top: 50px;
+  }
+
+  .loginForm {
+    background-color: var(--gray);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    width: 92vw;
+  }
+  .totalMember {
+    width: 90vw;
+    max-width: 90vw;
+  }
+}
+@media screen and (max-width: 567px) {
+}

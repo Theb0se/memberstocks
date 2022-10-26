@@ -1,0 +1,166 @@
+.navbar {
+  padding: 8px 24px;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  background-color: var(--gray);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--green);
+}
+
+.navbarMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ham {
+  display: none;
+}
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar h5 {
+  margin: 0;
+  color: var(--orng);
+  font-size: 32px;
+  cursor: pointer;
+  font-weight: 300;
+  position: relative;
+  padding: 1px 5px;
+}
+.navLinks li,
+.hamMenu li {
+  color: var(--white);
+}
+
+.navbar h5 span {
+  color: var(--white);
+  padding-left: 3px;
+}
+
+.navbar h5::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--green);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.navbar h5:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbar .navbarMain ul {
+  display: flex;
+  list-style: none;
+  width: 40vw;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 0 10px;
+}
+.navbar ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--green);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.navbar ul li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.hireBtn {
+  border: 1px solid var(--green);
+  padding: 5px 50px;
+  cursor: pointer;
+  color: var(--green) !important;
+  position: relative;
+}
+.hireBtn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -1px;
+  right: -1px;
+  border: 1px solid var(--green);
+  z-index: -1;
+  transition: 0.2s ease-out;
+}
+.hireBtn:hover::after {
+  top: 4px;
+  right: -5px;
+}
+.hireBtn:hover {
+  color: var(--navy);
+}
+.hamMenu {
+  /* position: absolute; */
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  padding: 0 20px;
+  justify-content: left;
+  transition: max-height 0.3s ease-out;
+}
+.hamMenu-open {
+  max-height: 900px;
+  width: 100vw;
+  transition: max-height 0.3s ease-in;
+}
+
+.hamMenu ul {
+  padding-left: 0;
+}
+
+.hamMenu li {
+  list-style: none;
+  position: relative;
+  width: fit-content;
+  margin-top: 25px;
+  font-size: 17px;
+}
+
+@media screen and (max-width: 767px) {
+  .navLinks {
+    display: none;
+  }
+  .ham {
+    display: block;
+  }
+  .navbar {
+    padding: 8px 10px;
+  }
+  .navbar h5 {
+    font-size: 40px;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 567px) {
+  .navLinks {
+    display: none;
+  }
+  .navbar h5 {
+    font-size: 28px;
+    font-weight: 400;
+  }
+}
