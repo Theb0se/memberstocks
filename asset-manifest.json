@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/memberstocks/static/css/main.2d2f5fe1.css",
+    "main.js": "/memberstocks/static/js/main.f5cab089.js",
+    "index.html": "/memberstocks/index.html",
+    "main.2d2f5fe1.css.map": "/memberstocks/static/css/main.2d2f5fe1.css.map",
+    "main.f5cab089.js.map": "/memberstocks/static/js/main.f5cab089.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d2f5fe1.css",
+    "static/js/main.f5cab089.js"
+  ]
+}
