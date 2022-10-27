@@ -7,19 +7,30 @@
   align-items: center;
   line-height: normal;
 }
+.homeHeading {
+  width: 100%;
+}
 .homeHeading h1 {
   color: var(--white);
-  font-size: 36px;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.homeHeading h2 {
+  color: var(--white);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--orng);
+  width: 100%;
+}
+.homeHeading p {
+  font-size: 32px;
   font-weight: 400;
 }
-.homeHeading h1 span {
+
+.homeHeading p span {
   color: var(--orng);
   font-weight: 500;
-}
-.desc {
-  font-family: var(--kanit);
-  font-weight: 400;
-  margin-top: 20px;
 }
 
 .loginForm {
@@ -29,6 +40,7 @@
   margin-top: 50px;
   max-width: 600px;
   width: 600px;
+  padding-bottom: 16px;
 }
 .loginForm h2 {
   font-size: 22px;
@@ -48,16 +60,25 @@
   border-radius: 9px;
   margin-top: 4px;
   padding: 2px 14px;
+  color: var(--orng);
 }
-.loginForm .pass {
-  position: relative;
-}
-.loginForm label {
+
+.loginForm ::placeholder {
   padding-left: 3px;
   font-size: 14px;
   color: var(--orng);
 }
 
+.loginForm .rem {
+  margin-left: 2px;
+
+  font-size: 15px;
+  margin-top: 15px;
+}
+.loginForm .rem p {
+  font-size: 14px;
+  font-weight: 400;
+}
 .loginForm button {
   height: 40px;
   background-color: var(--orng);
@@ -77,10 +98,18 @@
   margin-top: 20px;
   font-size: 14px;
   padding-left: 4px;
+  margin-bottom: 10px;
 }
 .signup a {
   color: var(--orng);
   padding-left: 4px;
+  font-weight: 600;
+}
+.signup .for {
+  color: var(--white);
+  padding-left: 4px;
+  font-size: 14px;
+  font-weight: 400;
 }
 .totalMember {
   background-color: var(--gray);
@@ -92,21 +121,63 @@
   display: flex;
   align-items: center;
 }
-.totalMember .icon {
-  margin-right: 10px;
-  border-radius: 9px;
-  padding: 10px 25px;
-  font-size: 52px;
-  color: var(--orng);
-  background: rgba(255, 131, 85, 0.1);
+
+.steps {
+  margin-top: 80px;
 }
-.totalMember .text h1 {
+.steps .heading {
+  text-align: center;
+}
+.steps .heading h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+.steps .heading h6 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.step {
+  margin-top: 70px;
+  padding: 10px;
+  max-width: 600px;
+  width: 700px;
+  border: 2px solid var(--orng);
+  border-radius: 8px;
+  position: relative;
+  background-color: var(--gray);
+}
+.step .number {
+  background-color: var(--orng);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 32px;
   font-weight: 600;
-  color: var(--orng);
+  border-radius: 40px;
+  position: absolute;
+  top: -42px;
+  right: calc(50% - 35px);
 }
-.totalMember .text{
-  width: 100%;
+.step .text {
+  margin-top: 40px;
+  text-align: center;
+}
+.step .text h4 {
+  font-size: 18px;
+  color: var(--orng);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.step .text p {
+  font-size: 14px;
+  margin-bottom: 2px;
+  padding-bottom: 10px;
 }
 
 @media screen and (max-width: 767px) {
@@ -121,10 +192,11 @@
     border-radius: 10px;
     margin-top: 50px;
     width: 92vw;
+    padding-bottom: 24px;
   }
-  .totalMember {
-    width: 90vw;
-    max-width: 90vw;
+  .step {
+    width: 93vw;
+    max-width: 93vw;
   }
 }
 @media screen and (max-width: 567px) {

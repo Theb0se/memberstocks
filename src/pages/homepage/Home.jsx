@@ -1,3 +1,4 @@
+import { Checkbox } from "@chakra-ui/react";
 import React from "react";
 import "./Home.css";
 
@@ -5,36 +6,43 @@ function Home() {
   return (
     <div className="home">
       <div className="homeHeading">
-        <h1>
-          WORLD'S #1 TELEGRAM SMM PANEL.
-          <span> Telegram Members Main Provider.</span>
-        </h1>
+        <h1>SMM PANEL</h1>
+        <h2>INDIA'S #1</h2>
+        <p>
+          Best SMM Service
+          <br />
+          You Will Get Best & Best <span>QUALITY</span>
+        </p>
       </div>
-      <div className="desc">
-        Best Telegram SMM Panel to Buy TeleGram Subscribers, Buy TeleGram Views,
-        Buy TeleGram Vote, Buy TeleGram Members, Buy TeleGram Fake Members, Buy
-        TeleGram Dead Members and many more! Best Telegram SMM Panel and
-        Cheapest Telegram SMM Reseller Panel.
-      </div>
+
       <div className="loginForm">
         <h2>Login</h2>
-        <form
-          onSubmit={() => {
-            alert(55);
-          }}
-        >
-          <label htmlFor="email">Username Or Email</label>
-          <input type="text" id="email" required autoComplete="true" />
+        <form onSubmit={() => {}}>
+          <input
+            type="text"
+            id="email"
+            required
+            autoComplete="true"
+            placeholder="Email / Username"
+          />
           <br />
           <br />
 
           <div className="pass">
             {" "}
-            <label htmlFor="email">Password</label>
-            <input type="password" id="email" required autoComplete="false" />
-            <a href="/" className="forget">
-              Forget Password ?
-            </a>
+            <input
+              type="password"
+              id="email"
+              required
+              autoComplete="false"
+              placeholder="Password"
+            />
+          </div>
+
+          <div className="rem">
+            <Checkbox size="md" colorScheme="orange" defaultChecked>
+              <p>Remember Me</p>
+            </Checkbox>
           </div>
 
           <button>Login</button>
@@ -42,18 +50,59 @@ function Home() {
             <p>
               Do Not Have An Account ? <a href="/">Sign Up</a>
             </p>
+            <a href="/" className="for">
+              Forget Password ?
+            </a>
           </div>
         </form>
       </div>
-      <div className="totalMember">
-        <div className="icon">
-          <span>
-            <i class="fa-regular fa-clipboard-list"></i>
-          </span>
+
+      <div className="steps">
+        <div className="heading">
+          <h2>Where To Begin ?</h2>
+          <h6>6 Step Is Given Below Please Read Carefully & Enjoy</h6>
         </div>
-        <div className="text">
-          <h1>5114032</h1>
-          <p>Total Members.</p>
+        <div className="step">
+          <div className="number">1</div>
+          <div className="text">
+            <h4>Register In Panel</h4>
+            <p>First You Register In Panel Via A Gmail</p>
+          </div>
+        </div>
+        <div className="step">
+          <div className="number">2</div>
+          <div className="text">
+            <h4>Sign In</h4>
+            <p>Sign In With New Account & Start A New Life</p>
+          </div>
+        </div>
+        <div className="step">
+          <div className="number">3</div>
+          <div className="text">
+            <h4>Add Funds</h4>
+            <p>Add Funds In Your Account Via Payment Method You Choose</p>
+          </div>
+        </div>
+        <div className="step">
+          <div className="number">4</div>
+          <div className="text">
+            <h4>Select Service</h4>
+            <p>Select Your Service For Grow Your Business</p>
+          </div>
+        </div>
+        <div className="step">
+          <div className="number">5</div>
+          <div className="text">
+            <h4>Place Your Order</h4>
+            <p>Place Your Best Order Now</p>
+          </div>
+        </div>
+        <div className="step">
+          <div className="number">6</div>
+          <div className="text">
+            <h4>Enjoy Your Magical Success</h4>
+            <p>Your Sucess Become The Noise Further</p>
+          </div>
         </div>
       </div>
     </div>

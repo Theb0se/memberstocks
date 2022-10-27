@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;400;500;600;700&display=swap");
 :root {
   --white: #e6f1ff;
   --green: #64ffda;
@@ -7,10 +8,11 @@
   --dark: #151516;
   --orng: #ff8355;
   --kanit: "Kanit", sans-serif;
+  --lexen: sans-serif;
 }
 body {
   margin: 0;
-  font-family: "Oswald", sans-serif !important;
+  font-family: var(--lexen) !important;
   /* font-family: "Oswald", sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,8 +44,6 @@ body {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
-
 
 ::selection {
   background-color: var(--blue);
