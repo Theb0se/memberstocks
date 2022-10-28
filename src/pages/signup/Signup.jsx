@@ -7,7 +7,7 @@ function Signup() {
   const [isloading, setisloading] = useState(false);
 
   return (
-    <div className="signupPage">
+    <div className="signupPage"  data-aos="fade-up" data-aos-duration="800">
       <div className="loginForm">
         <h2>Sign Up</h2>
         <form

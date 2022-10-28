@@ -1,12 +1,12 @@
 import React from "react";
 import "./Contact.css";
 import { Image } from "@chakra-ui/react";
-import whatsapp from "../../images/whatsapp.png";
+import whatsapp from "../../images/whatsapp.gif";
 import tg from "../../images/telegram.png";
 
 function Contact() {
   return (
-    <div className="contact">
+    <div className="contact" data-aos="zoom-in" data-aos-duration="1000">
       <div className="contactHead">
         <h1>Need Help ?</h1>
         <p>Contact Us On</p>
