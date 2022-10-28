@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import Hamburger from "hamburger-react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
@@ -13,26 +14,37 @@ function Navbar() {
     <div className="navbar">
       <div className="navbarMain">
         <div className="logo">
-          <a href="/public/index.html">
+          <Link to="/">
             <h5>
               Member<span>Stocks</span>
             </h5>
-          </a>
+          </Link>
         </div>
         <div className="navLinks">
           <ul>
-            <li>Sign in</li>
+            <Link to="/">
+              <li>Sign in</li>
+            </Link>
+            <Link to="/api">
+              <li>API</li>
+            </Link>
 
-            <li>API</li>
+            <Link to={"/signup"}>
+              <li>Sign Up</li>
+            </Link>
 
-            <li>Sign Up</li>
-
-            <li>Contact Us</li>
-            <li>Terms & Conditions</li>
+            <Link to="contact">
+              <li>Contact Us</li>
+            </Link>
+            <Link to={"terms"}>
+              <li>Terms & Conditions</li>
+            </Link>
           </ul>
         </div>
         <div className="ham">
           <Hamburger
+            toggled={isOpen}
+            toggle={setOpen}
             onToggle={hamOpen}
             size={26}
             duration={0.5}
@@ -42,14 +54,23 @@ function Navbar() {
       </div>
       <div className={isOpen ? " hamMenu hamMenu-open" : "hamMenu"}>
         <ul>
-          <li>Sign in</li>
+          <Link to="/" onClick={hamOpen}>
+            <li>Sign in</li>
+          </Link>
+          <Link to="/api" onClick={hamOpen}>
+            <li>API</li>
+          </Link>
 
-          <li>API</li>
+          <Link to={"/signup"} onClick={hamOpen}>
+            <li>Sign Up</li>
+          </Link>
 
-          <li>Sign Up</li>
-
-          <li>Contact Us</li>
-          <li>Terms & Conditions</li>
+          <Link to="contact" onClick={hamOpen}>
+            <li>Contact Us</li>
+          </Link>
+          <Link to={"terms"} onClick={hamOpen}>
+            <li>Terms & Conditions</li>
+          </Link>
         </ul>
       </div>
     </div>

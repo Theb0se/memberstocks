@@ -162,7 +162,7 @@
   border-radius: 40px;
   position: absolute;
   top: -42px;
-  right: calc(50% - 35px);
+  right: calc(50% - 40px);
 }
 .step .text {
   margin-top: 40px;

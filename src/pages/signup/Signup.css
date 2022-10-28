@@ -1,0 +1,24 @@
+.signupPage {
+  padding: 8px 150px;
+  color: var(--white);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+
+.rem P {
+  margin: 0;
+}
+
+.signupPage .signin {
+  margin-top: 16px;
+}
+.signupPage .signin p {
+  font-size: 14px;
+}
+.signupPage .signin p a {
+  color: var(--orng);
+  font-weight: 500;
+}

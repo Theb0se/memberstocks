@@ -46,6 +46,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--blue);
-  color: var(--light-navy);
+  background-color: var(--orng);
+  color: var(--dark);
 }
+
+

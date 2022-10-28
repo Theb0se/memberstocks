@@ -1,8 +1,12 @@
-import { Checkbox } from "@chakra-ui/react";
-import React from "react";
+import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
+  const toast = useToast();
+  const [isloading, setisloading] = useState(false);
+
   return (
     <div className="home">
       <div className="homeHeading">
@@ -17,7 +21,23 @@ function Home() {
 
       <div className="loginForm">
         <h2>Login</h2>
-        <form onSubmit={() => {}}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setisloading(true);
+
+            setTimeout(() => {
+              setisloading(false);
+              toast({
+                title: "Login Success.",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+                position: "top",
+              });
+            }, 3000);
+          }}
+        >
           <input
             type="text"
             id="email"
@@ -45,10 +65,10 @@ function Home() {
             </Checkbox>
           </div>
 
-          <button>Login</button>
+          <button>{isloading ? <Spinner /> : "Login"}</button>
           <div className="signup">
             <p>
-              Do Not Have An Account ? <a href="/">Sign Up</a>
+              Do Not Have An Account ? <Link to={"signup"}>Sign Up</Link>
             </p>
             <a href="/" className="for">
               Forget Password ?
