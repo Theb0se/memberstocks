@@ -1,11 +1,70 @@
 import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
+import axios from "axios";
+
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
   const toast = useToast();
   const [isloading, setisloading] = useState(false);
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const navigate = useNavigate();
+
+  const login = (e) => {
+    e.preventDefault();
+    setisloading(true);
+    const data = {
+      email: email,
+      password: password,
+    };
+    try {
+      axios
+        .post("https://smmboostclub.herokuapp.com/user/login", data)
+        .then(function (response) {
+          const data = response.data;
+          setisloading(false);
+          toast({
+            title: "Login Success",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+          setTimeout(() => {
+            toast({
+              title: `welcome Back ${data.name}`,
+              status: "success",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            });
+            navigate("order");
+          }, 900);
+        })
+        .catch(function (error) {
+          console.log(error);
+          setisloading(false);
+          toast({
+            title: error.response.data,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        });
+    } catch (error) {
+      setisloading(false);
+      toast({
+        title: error,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
 
   return (
     <div className="home" data-aos="zoom-in" data-aos-duration="1000">
@@ -21,29 +80,16 @@ function Home() {
 
       <div className="loginForm">
         <h2>Login</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setisloading(true);
-
-            setTimeout(() => {
-              setisloading(false);
-              toast({
-                title: "Login Success.",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "top",
-              });
-            }, 3000);
-          }}
-        >
+        <form onSubmit={login}>
           <input
             type="text"
             id="email"
             required
             autoComplete="true"
             placeholder="Email / Username"
+            onChange={(e) => {
+              setemail(e.target.value);
+            }}
           />
           <br />
           <br />
@@ -56,6 +102,9 @@ function Home() {
               required
               autoComplete="false"
               placeholder="Password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
             />
           </div>
 

@@ -1,37 +1,121 @@
-import { Checkbox, Spinner, Toast } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
+import axios from "axios";
+import React, { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 
 function Signup() {
   const [isloading, setisloading] = useState(false);
+  const [name, setname] = useState();
+  const [email, setemail] = useState();
+  const [number, setnumber] = useState();
+  const [password, setpassword] = useState();
+  const [cnfPass, setcnfPass] = useState();
+  const toast = useToast();
+  const ref = useRef();
+  const navigate = useNavigate();
 
-  return (
-    <div className="signupPage"  data-aos="fade-up" data-aos-duration="800">
-      <div className="loginForm">
-        <h2>Sign Up</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setisloading(true);
+  const Signup = (e) => {
+    setisloading(true);
+    e.preventDefault();
 
+    if (!ref.current.checked) {
+      setisloading(false);
+      toast({
+        title: "Please Agree to Terms and Conditions",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    } else if (password !== cnfPass) {
+      setisloading(false);
+      toast({
+        title: "Password Does Not Match",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      const data = {
+        name,
+        email,
+        number,
+        password,
+      };
+      try {
+        axios
+          .post("https://smmboostclub.herokuapp.com/user/signup", data)
+          .then(function (response) {
+            setisloading(false);
+            toast({
+              title: "Account created.",
+              status: "success",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            });
             setTimeout(() => {
-              setisloading(false);
-              Toast({
-                title: "Login Success.",
+              toast({
+                title: `welcome  ${response.data.name}.`,
                 status: "success",
                 duration: 3000,
                 isClosable: true,
                 position: "top",
               });
-            }, 3000);
-          }}
-        >
+              navigate("order");
+            }, 900);
+          })
+          .catch(function (error) {
+            console.log(error);
+            setisloading(false);
+            toast({
+              title: error.response.data,
+              status: "error",
+              duration: 3000,
+              isClosable: true,
+              position: "top",
+            });
+          });
+      } catch (error) {
+        setisloading(false);
+        console.log(error);
+        toast({
+          title: "Something Went Wrong",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+    }
+  };
+
+  return (
+    <div className="signupPage" data-aos="fade-up" data-aos-duration="800">
+      <div className="loginForm">
+        <h2>Sign Up</h2>
+        <form onSubmit={Signup}>
           {" "}
-          <input type="text" required placeholder="Name" />
+          <input
+            type="text"
+            required
+            placeholder="Name"
+            onChange={(e) => {
+              setname(e.target.value);
+            }}
+          />
           <br />
           <br />
-          <input type="email" required placeholder="Email " />
+          <input
+            type="email"
+            required
+            placeholder="Email "
+            onChange={(e) => {
+              setemail(e.target.value);
+            }}
+          />
           <br />
           <br />
           <input
@@ -39,6 +123,9 @@ function Signup() {
             required
             autoComplete="true"
             placeholder="Number "
+            onChange={(e) => {
+              setnumber(e.target.value);
+            }}
           />
           <br />
           <br />
@@ -47,6 +134,9 @@ function Signup() {
             required
             autoComplete="true"
             placeholder="Password "
+            onChange={(e) => {
+              setpassword(e.target.value);
+            }}
           />
           <br />
           <br />
@@ -57,10 +147,13 @@ function Signup() {
               required
               autoComplete="false"
               placeholder="Comfirm Password"
+              onChange={(e) => {
+                setcnfPass(e.target.value);
+              }}
             />
           </div>
           <div className="rem">
-            <Checkbox size="md" colorScheme="orange" defaultChecked>
+            <Checkbox size="md" colorScheme="orange" defaultChecked ref={ref}>
               <p>Yes , I Agree To Term & Condition !</p>
             </Checkbox>
           </div>
