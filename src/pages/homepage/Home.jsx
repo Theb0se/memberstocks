@@ -1,12 +1,11 @@
 import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
 import axios from "axios";
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
-
 function Home() {
   const toast = useToast();
+
   const [isloading, setisloading] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -15,16 +14,19 @@ function Home() {
   const login = (e) => {
     e.preventDefault();
     setisloading(true);
+
     const data = {
       email: email,
       password: password,
     };
+
     try {
       axios
         .post("https://smmboostclub.herokuapp.com/user/login", data)
         .then(function (response) {
           const data = response.data;
           setisloading(false);
+
           toast({
             title: "Login Success",
             status: "success",
@@ -79,8 +81,10 @@ function Home() {
       </div>
 
       <div className="loginForm">
-        <h2>Login</h2>
-        <form onSubmit={login}>
+        <h2>Sign In</h2>
+        <br />
+
+        <form onSubmit={login} action={"order"}>
           <input
             type="text"
             id="email"
@@ -131,43 +135,37 @@ function Home() {
           <h2>Where To Begin ?</h2>
           <h6>6 Step Is Given Below Please Read Carefully & Enjoy</h6>
         </div>
+
         <div className="step" data-aos="fade-up">
           <div className="number">1</div>
-          <div className="text">
-            <h4>Register In Panel</h4>
-            <p>First You Register In Panel Via A Gmail</p>
-          </div>
-        </div>
-        <div className="step" data-aos="fade-up">
-          <div className="number">2</div>
           <div className="text">
             <h4>Sign In</h4>
             <p>Sign In With New Account & Start A New Life</p>
           </div>
         </div>
         <div className="step" data-aos="fade-up">
-          <div className="number">3</div>
+          <div className="number">2</div>
           <div className="text">
             <h4>Add Funds</h4>
             <p>Add Funds In Your Account Via Payment Method You Choose</p>
           </div>
         </div>
         <div className="step" data-aos="fade-up">
-          <div className="number">4</div>
+          <div className="number">3</div>
           <div className="text">
             <h4>Select Service</h4>
             <p>Select Your Service For Grow Your Business</p>
           </div>
         </div>
         <div className="step" data-aos="fade-up">
-          <div className="number">5</div>
+          <div className="number">4</div>
           <div className="text">
             <h4>Place Your Order</h4>
             <p>Place Your Best Order Now</p>
           </div>
         </div>
         <div className="step" data-aos="fade-up">
-          <div className="number">6</div>
+          <div className="number">5</div>
           <div className="text">
             <h4>Enjoy Your Magical Success</h4>
             <p>Your Sucess Become The Noise Further</p>

@@ -134,7 +134,7 @@
     padding: 8px 10px;
   }
   .navbar h5 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 400;
   }
 }
@@ -143,7 +143,8 @@
     display: none;
   }
   .navbar h5 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
+    padding-left: 10px;
   }
 }
