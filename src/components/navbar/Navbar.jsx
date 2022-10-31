@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import Hamburger from "hamburger-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
+  const loactaion = useLocation();
+  const pathName = loactaion.pathname;
 
   const hamOpen = () => {
     isOpen ? setOpen(false) : setOpen(true);
@@ -23,19 +25,23 @@ function Navbar() {
         <div className="navLinks">
           <ul>
             <Link to="/">
-              <li className="active">Sign in</li>
+              <li className={pathName === "/" && "active"}>Sign in</li>
             </Link>
             <Link to={"/signup"}>
-              <li>Sign Up</li>
+              <li className={pathName === "/signup" && "active"}>Sign Up</li>
             </Link>
             <Link to="/api">
-              <li>API</li>
+              <li className={pathName === "/api" && "active"}>API</li>
             </Link>
             <Link to="contact">
-              <li>Contact Us</li>
+              <li className={pathName === "/contact" && "active"}>
+                Contact Us
+              </li>
             </Link>
             <Link to={"terms"}>
-              <li>Terms & Conditions</li>
+              <li className={pathName === "/terms" && "active"}>
+                Terms & Conditions
+              </li>
             </Link>
           </ul>
         </div>
@@ -52,19 +58,21 @@ function Navbar() {
       <div className={isOpen ? " hamMenu hamMenu-open" : "hamMenu"}>
         <ul>
           <Link to="/" onClick={hamOpen}>
-            <li className="active">Sign in</li>
+            <li className={pathName === "/" && "active"}>Sign in</li>
           </Link>
           <Link to={"/signup"} onClick={hamOpen}>
-            <li>Sign Up</li>
+            <li className={pathName === "/signup" && "active"}>Sign Up</li>
           </Link>
           <Link to="/api" onClick={hamOpen}>
-            <li>API</li>
+            <li className={pathName === "/api" && "active"}>API</li>
           </Link>
           <Link to="contact" onClick={hamOpen}>
-            <li>Contact Us</li>
+            <li className={pathName === "/contact" && "active"}>Contact Us</li>
           </Link>
           <Link to={"terms"} onClick={hamOpen}>
-            <li>Terms & Conditions</li>
+            <li className={pathName === "/terms" && "active"}>
+              Terms & Conditions
+            </li>
           </Link>
         </ul>
       </div>

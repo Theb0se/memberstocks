@@ -117,9 +117,8 @@ function Home(props) {
           </div>
 
           <div className="rem">
-            <Checkbox size="md" colorScheme="orange" defaultChecked>
-              <p>Remember Me</p>
-            </Checkbox>
+            <Checkbox size="md" colorScheme="orange" defaultChecked></Checkbox>
+            <p>Remember Me</p>
           </div>
 
           <button>{isloading ? <Spinner /> : "Sign In"}</button>
@@ -135,8 +134,15 @@ function Home(props) {
       </div>
 
       <div className="total">
-        <div className="icon"></div>
-        <div className="text"></div>
+        <div className="icon">
+          <span>
+            <i class="fa-regular fa-clipboard-list"></i>
+          </span>
+        </div>
+        <div className="text">
+          <h2>51267</h2>
+          <p>Total Order On Member Stocks</p>
+        </div>
       </div>
 
       <div className="steps">

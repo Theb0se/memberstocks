@@ -39,6 +39,7 @@
 .homeHeading p span {
   color: #fbdf07;
   font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .loginForm {
@@ -80,13 +81,14 @@
 
 .loginForm .rem {
   margin-left: 2px;
-
+  display: flex;
   font-size: 15px;
   margin-top: 15px;
 }
 .loginForm .rem p {
   font-size: 14px;
   font-weight: 400;
+  margin-left: 6px;
 }
 .loginForm button {
   height: 45px;
@@ -122,8 +124,47 @@
   font-weight: 400;
 }
 
+.home .total {
+  background-color: var(--gray);
+  max-width: 600px;
+  width: 600px;
+  padding: 24px;
+  margin-top: 50px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+}
+
+.total .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  border-radius: 8px;
+  background: rgba(255, 131, 85, 0.1);
+}
+.total .icon span {
+  font-size: 40px;
+  color: var(--orng);
+}
+.total .text {
+  margin-left: 10px;
+}
+.total .text h2 {
+  font-size: 32px;
+  color: var(--orng);
+  font-family: var(--bitter);
+  font-weight: 700;
+}
+.total .text p{
+  font-family: var(--Kreon);
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 14px;
+}
+
 .steps {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 .steps .heading {
   text-align: center;
@@ -133,6 +174,7 @@
   text-align: center;
   font-size: 30px;
   font-weight: 500;
+  color: var(--orng);
 }
 .steps .heading h6 {
   text-align: center;
@@ -193,8 +235,12 @@
     padding-bottom: 24px;
   }
   .step {
-    width: 93vw;
-    max-width: 93vw;
+    width: 96vw;
+    max-width: 96vw;
+  }
+  .home .total {
+    width: 90vw;
+    max-width: 90vw;
   }
 }
 @media screen and (max-width: 417px) {
