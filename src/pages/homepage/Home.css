@@ -38,7 +38,7 @@
 
 .homeHeading p span {
   color: #fbdf07;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 2px;
 }
 
@@ -90,7 +90,7 @@
   font-weight: 400;
 }
 .loginForm button {
-  height: 40px;
+  height: 45px;
   background-color: var(--orng);
   width: 100%;
   border-radius: 9px;

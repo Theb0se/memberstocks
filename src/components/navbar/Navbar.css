@@ -29,31 +29,19 @@
   position: relative;
   text-transform: uppercase;
 }
+
 .navLinks li,
 .hamMenu li {
   color: var(--white);
-}
-
-/* .navbar h5 span {
-  font-weight: 600;
-  padding-left: 3px;
-} */
-
-.navbar h5::after {
-  content: "";
-  position: absolute;
   width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--orng);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
 }
-.navbar h5:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.navLinks .active,
+.hamMenu .active {
+  background-color: var(--orng);
+}
+
+.navbar h5 span {
+  padding-left: 8px;
 }
 
 .navbar .navbarMain ul {
@@ -69,22 +57,8 @@
   cursor: pointer;
   position: relative;
   padding: 0 10px;
-}
-.navbar ul li::after {
-  content: "";
-  position: absolute;
   width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--orng);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.navbar ul li:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+  border-radius: 7px;
 }
 
 .hamMenu {
@@ -98,7 +72,6 @@
 }
 .hamMenu-open {
   max-height: 900px;
-  width: 100vw;
   transition: max-height 0.4s ease-in;
 }
 
@@ -141,9 +114,8 @@
     display: none;
   }
   .navbar h5 {
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 5PX;
-   
+    font-size: 22px;
+    font-weight: 700;
+    padding-left: 5px;
   }
 }

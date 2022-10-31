@@ -122,7 +122,7 @@ function Home(props) {
             </Checkbox>
           </div>
 
-          <button>{isloading ? <Spinner /> : "Login"}</button>
+          <button>{isloading ? <Spinner /> : "Sign In"}</button>
           <div className="signup">
             <p>
               Do Not Have An Account ? <Link to={"signup"}>Sign Up</Link>

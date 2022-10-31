@@ -23,16 +23,14 @@ function Navbar() {
         <div className="navLinks">
           <ul>
             <Link to="/">
-              <li>Sign in</li>
+              <li className="active">Sign in</li>
+            </Link>
+            <Link to={"/signup"}>
+              <li>Sign Up</li>
             </Link>
             <Link to="/api">
               <li>API</li>
             </Link>
-
-            <Link to={"/signup"}>
-              <li>Sign Up</li>
-            </Link>
-
             <Link to="contact">
               <li>Contact Us</li>
             </Link>
@@ -43,7 +41,6 @@ function Navbar() {
         </div>
         <div className="ham">
           <Hamburger
-            toggled={isOpen}
             toggle={setOpen}
             onToggle={hamOpen}
             size={26}
@@ -55,16 +52,14 @@ function Navbar() {
       <div className={isOpen ? " hamMenu hamMenu-open" : "hamMenu"}>
         <ul>
           <Link to="/" onClick={hamOpen}>
-            <li>Sign in</li>
+            <li className="active">Sign in</li>
+          </Link>
+          <Link to={"/signup"} onClick={hamOpen}>
+            <li>Sign Up</li>
           </Link>
           <Link to="/api" onClick={hamOpen}>
             <li>API</li>
           </Link>
-
-          <Link to={"/signup"} onClick={hamOpen}>
-            <li>Sign Up</li>
-          </Link>
-
           <Link to="contact" onClick={hamOpen}>
             <li>Contact Us</li>
           </Link>
