@@ -3,7 +3,7 @@ import "./Terms.css";
 
 function Terms() {
   return (
-    <div className="terms" data-aos="zoom-in" data-aos-duration="1000">
+    <div className="terms">
       <div className="termsDiv">
         <div className="termsHeadng">
           <h1>Terms And Conditions</h1>

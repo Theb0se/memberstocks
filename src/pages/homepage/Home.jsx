@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
-function Home() {
+function Home(props) {
   const toast = useToast();
 
   const [isloading, setisloading] = useState(false);
@@ -14,6 +14,7 @@ function Home() {
   const login = (e) => {
     e.preventDefault();
     setisloading(true);
+    props.setbarLoading(true);
 
     const data = {
       email: email,
@@ -34,6 +35,7 @@ function Home() {
             isClosable: true,
             position: "top",
           });
+          props.setbarLoading(false);
           setTimeout(() => {
             toast({
               title: `welcome Back ${data.name}`,
@@ -48,6 +50,7 @@ function Home() {
         .catch(function (error) {
           console.log(error);
           setisloading(false);
+          props.setbarLoading(false);
           toast({
             title: error.response.data,
             status: "error",
@@ -58,6 +61,7 @@ function Home() {
         });
     } catch (error) {
       setisloading(false);
+      props.setbarLoading(true);
       toast({
         title: error,
         status: "error",
@@ -69,9 +73,9 @@ function Home() {
   };
 
   return (
-    <div className="home" data-aos="zoom-in" data-aos-duration="1000">
+    <div className="home">
       <div className="homeHeading">
-        <h1>SMM PANEL</h1>
+        <h1>WELCOME</h1>
         <h2>INDIA'S #1</h2>
         <p>
           Best SMM Service
@@ -90,7 +94,7 @@ function Home() {
             id="email"
             required
             autoComplete="true"
-            placeholder="Email / Username"
+            placeholder="Username"
             onChange={(e) => {
               setemail(e.target.value);
             }}
@@ -133,38 +137,38 @@ function Home() {
       <div className="steps">
         <div className="heading">
           <h2>Where To Begin ?</h2>
-          <h6>6 Step Is Given Below Please Read Carefully & Enjoy</h6>
+          <h6>5 Step Is Given Below Please Read Carefully & Enjoy</h6>
         </div>
 
-        <div className="step" data-aos="fade-up">
+        <div className="step">
           <div className="number">1</div>
           <div className="text">
             <h4>Sign In</h4>
             <p>Sign In With New Account & Start A New Life</p>
           </div>
         </div>
-        <div className="step" data-aos="fade-up">
+        <div className="step">
           <div className="number">2</div>
           <div className="text">
             <h4>Add Funds</h4>
             <p>Add Funds In Your Account Via Payment Method You Choose</p>
           </div>
         </div>
-        <div className="step" data-aos="fade-up">
+        <div className="step">
           <div className="number">3</div>
           <div className="text">
             <h4>Select Service</h4>
             <p>Select Your Service For Grow Your Business</p>
           </div>
         </div>
-        <div className="step" data-aos="fade-up">
+        <div className="step">
           <div className="number">4</div>
           <div className="text">
             <h4>Place Your Order</h4>
             <p>Place Your Best Order Now</p>
           </div>
         </div>
-        <div className="step" data-aos="fade-up">
+        <div className="step">
           <div className="number">5</div>
           <div className="text">
             <h4>Enjoy Your Magical Success</h4>

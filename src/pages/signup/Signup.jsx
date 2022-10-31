@@ -93,7 +93,7 @@ function Signup() {
   };
 
   return (
-    <div className="signupPage" data-aos="fade-up" data-aos-duration="800">
+    <div className="signupPage" >
       <div className="loginForm">
         <h2>Sign Up</h2>
         <form onSubmit={Signup}>

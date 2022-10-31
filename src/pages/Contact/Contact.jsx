@@ -6,7 +6,7 @@ import tg from "../../images/telegram.png";
 
 function Contact() {
   return (
-    <div className="contact" data-aos="zoom-in" data-aos-duration="1000">
+    <div className="contact">
       <div className="contactHead">
         <h1>Need Help ?</h1>
         <p>Contact Us On</p>

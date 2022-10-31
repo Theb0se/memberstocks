@@ -8,7 +8,6 @@
 .home {
   padding: 8px 150px;
   color: var(--white);
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +18,18 @@
 }
 .homeHeading h1 {
   color: var(--white);
-  font-size: 27px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: 600;
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 .homeHeading h2 {
   color: var(--white);
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--orng);
   width: 100%;
+  margin-top: 10px;
 }
 .homeHeading p {
   font-size: 32px;
@@ -36,15 +37,16 @@
 }
 
 .homeHeading p span {
-  color: var(--orng);
-  font-weight: 500;
+  color: #fbdf07;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 .loginForm {
   background-color: var(--gray);
   padding: 20px;
   border-radius: 10px;
-  margin-top: 50px;
+  margin-top: 20px;
   max-width: 600px;
   width: 600px;
   padding-bottom: 16px;
@@ -93,6 +95,7 @@
   width: 100%;
   border-radius: 9px;
   margin-top: 30px;
+  border-bottom: 2px solid #ea5923;
 }
 .forget {
   font-size: 14px;
@@ -180,7 +183,6 @@
 @media screen and (max-width: 767px) {
   .home {
     padding: 8px 15px;
-    padding-top: 50px;
   }
 
   .loginForm {
@@ -196,5 +198,8 @@
     max-width: 93vw;
   }
 }
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 417px) {
+  .homeHeading h1 {
+    font-size: 25px;
+  }
 }
