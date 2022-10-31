@@ -134,6 +134,11 @@ function Home(props) {
         </form>
       </div>
 
+      <div className="total">
+        <div className="icon"></div>
+        <div className="text"></div>
+      </div>
+
       <div className="steps">
         <div className="heading">
           <h2>Where To Begin ?</h2>

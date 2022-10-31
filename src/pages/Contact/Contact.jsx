@@ -17,7 +17,7 @@ function Contact() {
           <Image src={whatsapp} alt="Dan Abramov" w={50} />
         </div>
         <div className="text">
-          <h1>Whatsapp</h1>
+          <h1>WhatsApp</h1>
           <a href="https://wa.me/+919516945996">9516945996</a>
         </div>
       </div>
