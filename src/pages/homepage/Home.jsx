@@ -27,6 +27,9 @@ function Home(props) {
         .then(function (response) {
           const data = response.data;
           setisloading(false);
+          const user = JSON.stringify(data);
+          localStorage.setItem("user", user);
+          sessionStorage.setItem("user", user);
 
           toast({
             title: "Login Success",
@@ -88,7 +91,7 @@ function Home(props) {
         <h2>Sign In</h2>
         <br />
 
-        <form onSubmit={login} action={"order"}>
+        <form onSubmit={login}>
           <input
             type="text"
             id="email"

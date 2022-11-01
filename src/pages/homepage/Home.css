@@ -1,9 +1,4 @@
-.loading {
-  position: sticky;
-  z-index: 999;
-  top: 0;
-  width: 100%;
-}
+
 
 .home {
   padding: 8px 150px;

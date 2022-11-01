@@ -1,0 +1,139 @@
+.order {
+  padding: 8px 150px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+
+.infos {
+  max-width: 600px;
+  width: 600px;
+  padding: 20px;
+  background-color: var(--gray);
+  border-radius: 9px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.infos .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 70px;
+  border-radius: 8px;
+  background: rgba(255, 131, 85, 0.1);
+  margin-right: 20px;
+}
+
+.infos .icon span {
+  font-size: 32px;
+  color: var(--orng);
+}
+.infos .text h2 {
+  font-size: 21px;
+  color: var(--orng);
+  font-family: var(--bitter);
+  font-weight: 600;
+  margin-top: 5px;
+}
+.infos .text p {
+  font-family: var(--Kreon);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.newOrder {
+  padding: 16px;
+  background-color: var(--gray);
+  max-width: 600px;
+  width: 600px;
+  border-radius: 8px;
+  margin-top: 40px;
+  color: var(--orng);
+}
+.newOrder h1 {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.newOrder label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 3px;
+}
+.newOrder input,
+.newOrder select {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  font-size: "";
+  font-weight: inherit;
+  height: 48px;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 2px 14px;
+  color: var(--orng);
+}
+
+.newOrder .service,
+.newOrder .desc,
+.newOrder .link,
+.newOrder .quantity,
+.newOrder .charge {
+  margin-top: 20px;
+}
+.newOrder .descIp {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 8px 14px;
+  color: var(--orng);
+  min-height: 48px;
+}
+
+.newOrder .quantity p {
+  font-size: 10px;
+  margin-top: 4px;
+  margin-left: 5px;
+}
+
+.newOrder button {
+  height: 45px;
+  background-color: var(--orng);
+  width: 100%;
+  border-radius: 9px;
+  margin-top: 30px;
+  color: var(--white);
+  border-bottom: 2px solid #ea5923;
+}
+
+@media screen and (max-width: 767px) {
+  .infos {
+    width: 93vw;
+    max-width: 93vw;
+    padding: 12px;
+  }
+  .newOrder {
+    width: 93vw;
+    max-width: 93vw;
+  }
+}
+@media screen and (max-width: 417px) {
+  .homeHeading h1 {
+    font-size: 25px;
+  }
+}
