@@ -1,15 +1,15 @@
 import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { DataState } from "../../Context/DataContext";
 import "./Home.css";
 function Home(props) {
   const toast = useToast();
-
   const [isloading, setisloading] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const navigate = useNavigate();
+  const { setisLogin } = DataState();
 
   const login = (e) => {
     e.preventDefault();
@@ -30,25 +30,16 @@ function Home(props) {
           const user = JSON.stringify(data);
           localStorage.setItem("user", user);
           sessionStorage.setItem("user", user);
-
+          setisLogin(true);
           toast({
-            title: "Login Success",
-            status: "success",
-            duration: 3000,
+            title: "Log In Successful",
+            duration: 2500,
             isClosable: true,
             position: "top",
+            status: "success",
+            variant: "subtle",
           });
           props.setbarLoading(false);
-          setTimeout(() => {
-            toast({
-              title: `welcome Back ${data.name}`,
-              status: "success",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
-            navigate("order");
-          }, 900);
         })
         .catch(function (error) {
           console.log(error);
@@ -57,9 +48,10 @@ function Home(props) {
           toast({
             title: error.response.data,
             status: "error",
-            duration: 3000,
+            duration: 4000,
             isClosable: true,
             position: "top",
+            variant: "subtle",
           });
         });
     } catch (error) {
@@ -120,7 +112,7 @@ function Home(props) {
           </div>
 
           <div className="rem">
-            <Checkbox size="md" colorScheme="orange" defaultChecked></Checkbox>
+            <Checkbox size="md" colorScheme="orange"></Checkbox>
             <p>Remember Me</p>
           </div>
 

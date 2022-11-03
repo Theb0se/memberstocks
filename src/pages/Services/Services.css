@@ -1,0 +1,69 @@
+.services {
+  padding: 8px 150px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+  min-height: 75vh;
+}
+
+.search {
+  width: 600px;
+  max-width: 600px;
+  margin-top: 40px;
+}
+.services .tbl {
+  max-width: 600px;
+  width: 600px;
+  padding: 20px;
+  background-color: var(--gray);
+  border-radius: 9px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.services .tbl table td {
+  padding: 8px 24px !important;
+  font-size: 14px;
+  text-align: center;
+}
+.services .tbl table thead th{
+ color: var(--orng) !important;
+ font-size: 15px;
+}
+.services .tbl table thead th.service{
+padding-left: 100px;
+}
+.services .tbl table td button {
+  background-color: var(--orng);
+}
+
+.chakra-modal__content {
+  background-color: var(--gray) !important;
+  color: #fff !important;
+}
+.chakra-modal__body p{
+    font-size: 14px;
+}
+
+.chakra-modal__header {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+  .services {
+    padding: 12px;
+  }
+  .search {
+    width: 94vw;
+    max-width: 94vw;
+  }
+  .services .tbl {
+    width: 94vw;
+    max-width: 94vw;
+  }
+}
+

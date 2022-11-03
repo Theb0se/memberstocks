@@ -35,11 +35,12 @@
 .hamMenu li {
   color: var(--white);
   width: 100%;
+  transition: 0.3s ease;
 }
 .navLinks .active,
 .hamMenu .active {
   background-color: var(--orng);
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .navbar h5 span {
@@ -61,6 +62,14 @@
   padding: 0 10px;
   width: 100%;
   border-radius: 7px;
+}
+
+.navLinks a:hover li,
+.hamMenu a:hover li,
+.navLinks li:hover,
+.hamMenu li:hover {
+  background-color: var(--orng);
+  transition: 0.3s ease;
 }
 
 .hamMenu {
@@ -86,20 +95,27 @@
   list-style: none;
   position: relative;
   width: fit-content;
-  margin-top: 18px;
+  margin-top: 12px;
   font-size: 17px;
-  width: 100%Add Funds In Your Account Via Payment Method You Choose;
+  width: 100%;
 }
 
 .hamMenu li:last-child {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+.navlinkOver {
+  display: none;
+}
+
+.hamShow {
+  display: block;
 }
 
 @media screen and (max-width: 767px) {
   .navLinks {
-    display: none;
     padding: 10px;
   }
+
   .ham {
     display: block;
   }

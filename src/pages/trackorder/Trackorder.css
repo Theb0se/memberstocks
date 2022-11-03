@@ -7,7 +7,7 @@
   line-height: normal;
 }
 
-.table {
+.ttable {
   width: 800px;
   max-width: 800px;
   padding: 10px;
@@ -15,11 +15,35 @@
   border-radius: 8px;
   overflow: auto;
 }
-.table::-webkit-scrollbar {
-  display: none;
+.filter {
+  width: 800px;
+  max-width: 800px;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.table table tr td {
+.filter button {
+  margin-right: 10px;
+  height: 35px;
+  padding: 0px 20px;
+  background-color: var(--dark);
+  margin-bottom: 18px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  font-size: 16px;
+  border: 1px solid var(--orng);
+}
+
+.filter button:hover {
+  background-color: var(--orng);
+  transition: 0.3s ease;
+}
+.ttable .table {
+  width: 1200px;
+  max-width: 1200px !important;
+}
+
+.ttable table tr td {
   font-weight: 400;
   font-size: 14px;
   padding: 10px 15px;
@@ -27,39 +51,57 @@
   color: var(--white);
   border-bottom: 1px solid #fff;
 }
-.table table tr th {
+.ttable table tr th {
   font-weight: 600;
   font-size: 14px;
   padding: 10px 15px;
   color: var(--orng);
+  border-bottom: 1px solid #fff;
 }
 
-.table thead
- {
+.ttable table tr td a {
+  color: var(--orng);
+}
+
+.ttable thead {
   white-space: nowrap;
   text-align: left;
 }
 
-.table tbody{
+.ttable tbody tr .center {
+  text-align: center;
+}
+
+/* .ttable tbody{
     white-space: nowrap;
+} */
+
+.table .service {
+  width: 500px !important;
 }
 
-.table .service{
-    width: 500px !important;
+.loadingDiv {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
 }
-
 @media screen and (max-width: 767px) {
   .trackOrder {
     padding: 8px 10px;
   }
-  .table {
-    width: 93vw;
-    max-width: 93vw;
+  .ttable {
+    width: 96vw;
+    max-width: 96vw;
     padding: 12px;
   }
-  .newOrder {
-    width: 93vw;
-    max-width: 93vw;
+  .filter {
+    width: 96vw;
+    max-width: 96vw;
+  }
+  .loadingDiv {
+    width: 96vw;
   }
 }
 @media screen and (max-width: 417px) {

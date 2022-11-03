@@ -7,6 +7,10 @@
   line-height: normal;
 }
 
+.members {
+  margin-top: 50px !important;
+}
+
 .infos {
   max-width: 600px;
   width: 600px;
@@ -42,7 +46,6 @@
   margin-top: 5px;
 }
 .infos .text p {
-  font-family: var(--Kreon);
   font-size: 18px;
   font-weight: 400;
 }
@@ -62,6 +65,37 @@
   text-align: center;
   padding-bottom: 20px;
 }
+.newOrder .msgBox {
+  padding: 9px 12px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.msgBox .msghead {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.error {
+  color: #ff8355;
+  background: rgba(255, 131, 85, 0.2);
+  border-color: transparent;
+}
+.success {
+  color: #26a25e !important;
+  background: rgba(25, 200, 104, 0.2) !important;
+  border-color: transparent;
+}
+
+.success p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
 .newOrder label {
   display: block;
   margin-bottom: 5px;
@@ -81,7 +115,7 @@
   border-radius: 9px;
   margin-top: 4px;
   padding: 2px 14px;
-  color: var(--orng);
+  color: var(--white);
 }
 
 .newOrder .service,
@@ -101,7 +135,7 @@
   border-radius: 9px;
   margin-top: 4px;
   padding: 8px 14px;
-  color: var(--orng);
+  color: var(--white);
   min-height: 48px;
 }
 
@@ -130,10 +164,5 @@
   .newOrder {
     width: 93vw;
     max-width: 93vw;
-  }
-}
-@media screen and (max-width: 417px) {
-  .homeHeading h1 {
-    font-size: 25px;
   }
 }

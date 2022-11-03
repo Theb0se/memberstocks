@@ -1,21 +1,27 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Order.css";
-import { Spinner, useToast } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 import { DataState } from "../../Context/DataContext";
+import { Helmet } from "react-helmet";
 
 function Order(props) {
   const [service, setservice] = useState();
   const [quantity, setQuantity] = useState(0);
   const [Link, setLink] = useState();
   const [isloading, setisloading] = useState(false);
-  const toast = useToast();
+  const [msgtype, setmsgtype] = useState();
+  const [isMsg, setisMsg] = useState(false);
+  const [msg, setmsg] = useState();
+  const [msgId, setmsgId] = useState();
+
   const { user } = DataState();
 
   const placeOrder = (e) => {
     e.preventDefault();
     setisloading(true);
     props.setbarLoading(true);
+    setisMsg(false);
 
     try {
       const newOrder = {
@@ -35,15 +41,12 @@ function Order(props) {
           setisloading(false);
           if (msg.error) {
             console.log(msg.error);
-            toast({
-              title: msg.error,
-              status: "error",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
+            setmsgtype(false);
+            setmsg("Incorrect Link");
+            setisMsg(true);
           }
           if (msg.order) {
+            setmsgId(msg.order);
             const orderData = {
               orderNumber: msg.order,
               userId: user.id,
@@ -66,14 +69,9 @@ function Order(props) {
                 const errmsg = JSON.stringify(error);
                 console.log(errmsg);
               });
-
-            toast({
-              title: `Order Placed Succesfully Your Order Id Is : ${msg.order}`,
-              status: "success",
-              duration: 3000,
-              isClosable: true,
-              position: "top",
-            });
+            setisMsg(true);
+            setmsgtype(true);
+            setmsg("Order Placed Successfully");
           }
         })
         .catch(function (error) {
@@ -89,6 +87,9 @@ function Order(props) {
 
   return (
     <div className="order">
+      <Helmet>
+        <title>Memberstock - New Order</title>
+      </Helmet>
       <div className="infos members">
         <div className="icon">
           <span>
@@ -96,21 +97,8 @@ function Order(props) {
           </span>
         </div>
         <div className="text">
-          <p>Member Stocks Order</p>
+          <p>Total Users</p>
           <h2>0</h2>
-        </div>
-      </div>
-
-      {/* orders */}
-      <div className="infos orders">
-        <div className="icon">
-          <span>
-            <i class="fa-light fa-cart-shopping"></i>
-          </span>
-        </div>
-        <div className="text">
-          <p>Total Orders</p>
-          <h2>51267</h2>
         </div>
       </div>
 
@@ -123,7 +111,7 @@ function Order(props) {
         </div>
         <div className="text">
           <p>Account Balance</p>
-          <h2>≈ ₹ 0</h2>
+          <h2>₹ 0</h2>
         </div>
       </div>
 
@@ -143,7 +131,26 @@ function Order(props) {
       {/* placing Order */}
       <div className="newOrder">
         <h1>New Order</h1>
-
+        {isMsg && (
+          <div className={msgtype ? "msgBox success" : "msgBox error"}>
+            {msgtype ? (
+              <>
+                <div className="msghead">Your Order Recevied</div>
+                <p>{`Order Id : ${msgId}`}</p>
+                <p>
+                  Service : Telegram Members ( Non Drop ) ( 10 / Day ) ( Max -
+                  20K ) | Instant Start | Best Working - ₹ 125 Per 1000
+                </p>
+                <p>{`Link : ${Link}`}</p>
+                <p>{`Quantity : ${quantity}`}</p>
+                <p>{`Charge : ₹ ${quantity * 0.125}`}</p>
+                <p>{`Balence : 0`}</p>
+              </>
+            ) : (
+              "Incorrect Link"
+            )}
+          </div>
+        )}
         <form onSubmit={placeOrder}>
           <div className="category">
             <label htmlFor="serviceSelect">Category</label>
@@ -163,8 +170,9 @@ function Order(props) {
             <select>
               {service === "2" && (
                 <option value="1">
-                  1 - Telegram Members ( Non Drop ) ( 10 / Day ) ( Max - 20K ) |
-                  Instant Start | Best Working - ₹ 120 Per 1000
+                  <span className="orng"> 1 </span> - Telegram Members ( Non
+                  Drop ) ( 10 / Day ) ( Max - 20K ) | Instant Start | Best
+                  Working - ₹ 125 Per 1000
                 </option>
               )}
             </select>
@@ -208,11 +216,17 @@ function Order(props) {
           {/* charge */}
           <div className="charge">
             <label htmlFor="Link">Charge</label>
-            <input type="text" disabled value={`₹ ${quantity * 0.12}`} />
+            <input type="text" disabled value={`₹ ${quantity * 0.125}`} />
           </div>
 
           <button> {isloading ? <Spinner /> : "Place Order"} </button>
         </form>
+
+        {isMsg && (
+          <div className={msgtype ? "msgBox success" : "msgBox error"}>
+            {msg}
+          </div>
+        )}
       </div>
     </div>
   );

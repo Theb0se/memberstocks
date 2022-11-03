@@ -1,5 +1,3 @@
-
-
 .home {
   padding: 8px 150px;
   color: var(--white);
@@ -35,6 +33,25 @@
   color: #fbdf07;
   font-weight: 800;
   letter-spacing: 1px;
+}
+.css-10e2zkr {
+  margin-top: 57px;
+  color: #ff8355 !important;
+  background: rgba(255, 131, 85, 0.2) !important;
+}
+.css-hk9y3l {
+  margin-top: 57px;
+  color: #26a25e !important;
+  background: rgba(25, 200, 104, 0.2) !important;
+}
+
+.css-10e2zkr .chakra-alert__icon,
+.css-hk9y3l .chakra-alert__icon {
+  display: none;
+}
+.css-10e2zkr .css-u7m3ts,
+.css-hk9y3l .css-u7m3ts {
+  margin-top: 6px;
 }
 
 .loginForm {
@@ -151,7 +168,7 @@
   font-family: var(--bitter);
   font-weight: 700;
 }
-.total .text p{
+.total .text p {
   font-family: var(--Kreon);
   font-size: 15px;
   font-weight: 500;

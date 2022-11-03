@@ -1,0 +1,58 @@
+.update {
+  padding: 8px 150px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+  min-height: 75vh;
+}
+
+.search {
+  width: 600px;
+  max-width: 600px;
+  margin-top: 40px;
+}
+
+.tbl {
+  max-width: 600px;
+  width: 600px;
+  padding: 20px;
+  background-color: var(--gray);
+  border-radius: 9px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.update .tbl table td {
+  padding: 8px 24px !important;
+  font-size: 14px;
+}
+.update .tbl table thead th {
+  color: var(--orng) !important;
+  font-size: 15px;
+  text-align: center;
+}
+.update .tbl table td button {
+  background-color: var(--orng);
+}
+.update .tbl table .css-xumdn4:first-child,
+.update .tbl table .css-1zts0j:first-child {
+  padding-left: 4px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .update {
+    padding: 12px;
+  }
+  .search {
+    width: 94vw;
+    max-width: 94vw;
+  }
+  .update .tbl {
+    width: 94vw;
+    max-width: 94vw;
+  }
+}

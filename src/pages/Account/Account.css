@@ -1,0 +1,103 @@
+.account {
+  padding: 8px 150px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+
+.card {
+  max-width: 600px;
+  width: 600px;
+  padding: 20px;
+  background-color: var(--gray);
+  border-radius: 9px;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.account label {
+  display: block;
+  margin-bottom: 1px;
+  margin-left: 3px;
+  color: var(--orng);
+}
+.account input,
+.account select {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  font-size: "";
+  font-weight: inherit;
+  height: 42px;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 2px 14px;
+  color: var(--white);
+}
+.email {
+  margin-top: 20px;
+}
+.model {
+  display: flex;
+  justify-content: flex-end;
+}
+.model button:hover {
+  background-color: var(--orng);
+}
+
+.emailChng {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.emailChng input {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  font-size: "";
+  font-weight: inherit;
+  height: 40px;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 2px 14px;
+  color: var(--white);
+}
+.emailChng label {
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  color: var(--orng);
+}
+.password {
+  margin-top: 40px;
+}
+
+.password label {
+  margin-top: 5px;
+}
+.password .btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.password .btn button {
+  background-color: var(--orng);
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 93vw;
+    max-width: 93vw;
+    padding: 12px;
+  }
+}

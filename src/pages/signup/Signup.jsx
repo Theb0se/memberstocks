@@ -93,7 +93,7 @@ function Signup() {
   };
 
   return (
-    <div className="signupPage" >
+    <div className="signupPage">
       <div className="loginForm">
         <h2>Sign Up</h2>
         <form onSubmit={Signup}>
@@ -153,7 +153,7 @@ function Signup() {
             />
           </div>
           <div className="rem">
-            <Checkbox size="md" colorScheme="orange" defaultChecked ref={ref}>
+            <Checkbox size="md" colorScheme="orange" ref={ref}>
               <p>Yes , I Agree To Term & Condition !</p>
             </Checkbox>
           </div>
