@@ -34,7 +34,7 @@ function Trackorder() {
         const dtr = dt.reverse();
         setallOrder(dtr);
         setallOrdermain(dtr);
-        console.log(dt);
+        console.log(dtr);
         setisloading(false);
       })
 
