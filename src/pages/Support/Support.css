@@ -1,0 +1,99 @@
+.support {
+  padding: 8px 150px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: normal;
+}
+
+.supportMsg,
+.tickets {
+  max-width: 600px;
+  width: 600px;
+  padding: 20px;
+  background-color: var(--gray);
+  border-radius: 9px;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.supportMsg label {
+  display: block;
+  margin-bottom: 1px;
+  margin-left: 3px;
+  color: var(--orng);
+}
+.supportMsg input,
+.supportMsg textarea {
+  width: 100%;
+  background-color: #252427;
+  border-color: #1a191b;
+  color: #ffffff;
+  font-size: "";
+  font-weight: inherit;
+  height: 42px;
+  border-bottom-width: 2px;
+  outline: none;
+  border-radius: 9px;
+  margin-top: 4px;
+  padding: 2px 14px;
+  color: var(--white);
+}
+
+.supportMsg textarea {
+  padding: 10px 14px;
+  height: 90px;
+}
+
+.supportMsg .fileIp input {
+  padding: 10px;
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
+.supportMsg button {
+  margin-top: 30px;
+  width: 200px;
+  height: 40px;
+  background-color: var(--orng);
+  border-radius: 8px;
+}
+.tickets {
+  overflow: auto;
+}
+
+.tickets table {
+  width: 500px;
+}
+
+.tickets table thead tr {
+  border-bottom: 1px solid #fff;
+  color: var(--orng);
+  margin-bottom: 4px;
+}
+.tickets table tbody tr {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 4px;
+}
+
+.tickets table thead tr th {
+  padding: 5px 10px 5px 0;
+  text-align: left;
+}
+.tickets table tbody tr td {
+  padding: 8px 10px 8px 0;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .supportMsg,
+  .tickets {
+    width: 93vw;
+    max-width: 93vw;
+    padding: 12px;
+  }
+}

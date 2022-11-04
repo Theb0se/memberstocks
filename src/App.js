@@ -15,6 +15,7 @@ import Trackorder from "./pages/trackorder/Trackorder";
 import Services from "./pages/Services/Services";
 import Update from "./pages/Update/Update";
 import Account from "./pages/Account/Account";
+import Support from "./pages/Support/Support";
 
 function App() {
   const [barLoading, setbarLoading] = useState(false);
@@ -71,6 +72,7 @@ function App() {
           <Route path="services" element={<Services />} />
           <Route path="update" element={<Update />} />
           <Route path="account" element={<Account />} />
+          <Route path="support" element={<Support />} />
         </Routes>
         <Footer />
       </div>

@@ -10,21 +10,65 @@ import {
   ModalHeader,
   useToast,
 } from "@chakra-ui/react";
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { DataState } from "../../Context/DataContext";
 import "./Account.css";
 
 function Account() {
-  const { user } = DataState();
+  const { user, setisLogin, isLogin } = DataState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [NewEmail, setNewEmail] = useState();
   const [password, setpassword] = useState();
   const [NewPass, setNewPass] = useState();
   const [cnfPass, setcnfPass] = useState();
-  const [isLoading, setisLoading] = useState(false);
+  const [isLoadingpass, setisLoadingpass] = useState(false);
+  const [isLoadingEmail, setisLoadingEmail] = useState(false);
   const toast = useToast();
 
+  // email change
+
+  const ChnageEmail = () => {
+    setisLoadingEmail(true);
+    const data = {
+      email: NewEmail,
+      password: password,
+      userId: user.id,
+      currEmail: user.email,
+    };
+
+    axios
+      .post("https://smmboostclub.herokuapp.com/user/updateEmail", data)
+      .then(function (response) {
+        console.log(response.data);
+        const userData = JSON.stringify(response.data);
+        localStorage.setItem("user", userData);
+        setisLogin(isLogin ? false : true);
+        setisLoadingEmail(false);
+        setNewEmail("");
+        setpassword("");
+        toast({
+          title: "Email Changed",
+          status: "success",
+          duration: 1500,
+          isClosable: true,
+          position: "top",
+        });
+      })
+      .catch(function (error) {
+        toast({
+          title: error.response.data,
+          status: "error",
+          duration: 1500,
+          isClosable: true,
+          position: "top",
+        });
+        setisLoadingEmail(false);
+      });
+  };
+
+  // password Change
   const changePass = () => {
     if (!password || !NewPass || !cnfPass) {
       toast({
@@ -34,14 +78,48 @@ function Account() {
         isClosable: true,
         position: "top",
       });
+    } else if (NewPass !== cnfPass) {
+      toast({
+        title: "Password Does Not Match",
+        status: "error",
+        duration: 1500,
+        isClosable: true,
+        position: "top",
+      });
     } else {
-      setisLoading(true);
+      setisLoadingpass(true);
+      const data = {
+        email: user.email,
+        userId: user.id,
+        currPassword: password,
+        password: NewPass,
+      };
+      axios
+        .post("https://smmboostclub.herokuapp.com/user/updatePassword", data)
+        .then(function (response) {
+          setisLoadingpass(false);
+          setNewPass("");
+          setcnfPass("");
+          setpassword("");
+          toast({
+            title: response.data,
+            status: "success",
+            duration: 1500,
+            isClosable: true,
+            position: "top",
+          });
+        })
+        .catch(function (error) {
+          setisLoadingpass(false);
+          toast({
+            title: error.response.data,
+            status: "error",
+            duration: 1500,
+            isClosable: true,
+            position: "top",
+          });
+        });
     }
-  };
-
-  const ChnageEmail = () => {
-    console.log(user.email, NewEmail);
-    setisLoading(true);
   };
 
   return (
@@ -102,7 +180,7 @@ function Account() {
                   size={"sm"}
                   colorScheme="red"
                   onClick={ChnageEmail}
-                  isLoading={isLoading}
+                  isLoading={isLoadingEmail}
                 >
                   Change Email Address
                 </Button>
@@ -117,6 +195,7 @@ function Account() {
         <input
           type="password"
           id="currPass"
+          value={password}
           onChange={(e) => {
             setpassword(e.target.value);
           }}
@@ -127,6 +206,7 @@ function Account() {
         <input
           type="password"
           id="newPass"
+          value={NewPass}
           onChange={(e) => {
             setNewPass(e.target.value);
           }}
@@ -137,12 +217,18 @@ function Account() {
         <input
           type="text"
           id="cnfnewPass"
+          value={cnfPass}
           onChange={(e) => {
             setcnfPass(e.target.value);
           }}
         />
         <div className="btn">
-          <Button size="md" mt="5" onClick={changePass} isLoading={isLoading}>
+          <Button
+            size="md"
+            mt="5"
+            onClick={changePass}
+            isLoading={isLoadingpass}
+          >
             Change Password
           </Button>
         </div>

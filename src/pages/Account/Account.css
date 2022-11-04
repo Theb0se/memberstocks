@@ -90,7 +90,8 @@
   justify-content: flex-end;
 }
 
-.password .btn button {
+.password .btn button,
+.password .btn button:hover {
   background-color: var(--orng);
 }
 
