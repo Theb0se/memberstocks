@@ -52,8 +52,8 @@ function Trackorder() {
       <div className="filter">
         <button
           value={""}
-          onClick={(e) => {
-            setallOrder(allOrdermain.reverse());
+          onClick={() => {
+            setallOrder(allOrdermain);
           }}
         >
           All
@@ -146,7 +146,7 @@ function Trackorder() {
                 <Spinner size="lg" />
               </div>
             ) : (
-              allOrder.reverse().map((o) => (
+              allOrder.map((o) => (
                 <tr>
                   <td>{o.orderNumber}</td>
                   <td>{<Moment format="DD/MM/YYYY">{o.updatedAt}</Moment>}</td>
