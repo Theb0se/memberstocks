@@ -61,6 +61,7 @@
   height: 40px;
   background-color: var(--orng);
   border-radius: 8px;
+  border-bottom: 2px solid #ea5923;
 }
 .tickets {
   overflow: auto;
@@ -82,11 +83,11 @@
 
 .tickets table thead tr th {
   padding: 5px 10px 5px 0;
-  text-align: left;
+  text-align: center;
 }
 .tickets table tbody tr td {
   padding: 8px 10px 8px 0;
-  text-align: left;
+  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
