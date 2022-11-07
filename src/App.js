@@ -16,6 +16,7 @@ import Services from "./pages/Services/Services";
 import Update from "./pages/Update/Update";
 import Account from "./pages/Account/Account";
 import Support from "./pages/Support/Support";
+import Addfund from './pages/Addfund/Addfund';
 
 function App() {
   const [barLoading, setbarLoading] = useState(false);
@@ -73,6 +74,7 @@ function App() {
           <Route path="update" element={<Update />} />
           <Route path="account" element={<Account />} />
           <Route path="support" element={<Support />} />
+          <Route path="fund" element={<Addfund />} />
         </Routes>
         <Footer />
       </div>

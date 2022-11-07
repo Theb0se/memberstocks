@@ -9,7 +9,7 @@ function Home(props) {
   const [isloading, setisloading] = useState(false);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const { setisLogin } = DataState();
+  const { setisLogin, isLogin } = DataState();
 
   const login = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ function Home(props) {
           const user = JSON.stringify(data);
           localStorage.setItem("user", user);
           sessionStorage.setItem("user", user);
-          setisLogin(true);
+          setisLogin(isLogin ? false : true);
           toast({
             title: "Log In Successful",
             duration: 2500,

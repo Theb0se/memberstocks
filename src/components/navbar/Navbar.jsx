@@ -7,7 +7,7 @@ import { DataState } from "../../Context/DataContext";
 function Navbar(props) {
   const [isOpen, setOpen] = useState(false);
   const loactaion = useLocation();
-  const { user, setisLogin } = DataState();
+  const { user, setisLogin, isLogin } = DataState();
   const pathName = loactaion.pathname;
   const navigate = useNavigate();
 
@@ -67,9 +67,7 @@ function Navbar(props) {
                 <li className={pathName === "/fund" && "active"}>Add Fund</li>
               </Link>
               <Link to={"support"}>
-                <li className={pathName === "/support" && "active"}>
-                  Support
-                </li>
+                <li className={pathName === "/support" && "active"}>Support</li>
               </Link>
               <Link to={"update"}>
                 <li className={pathName === "/update" && "active"}>Update</li>
@@ -81,7 +79,7 @@ function Navbar(props) {
                 onClick={() => {
                   props.setbarLoading(true);
                   setTimeout(() => {
-                    setisLogin(false);
+                    setisLogin(isLogin ? false : true);
                     props.setbarLoading(false);
                     localStorage.removeItem("user");
                     navigate("/");
@@ -155,7 +153,7 @@ function Navbar(props) {
               onClick={() => {
                 props.setbarLoading(true);
                 setTimeout(() => {
-                  setisLogin(false);
+                  setisLogin(isLogin ? false : true);
                   props.setbarLoading(false);
                   localStorage.removeItem("user");
                   navigate("/");
