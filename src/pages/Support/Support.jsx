@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import "./Support.css";
 
 function Support() {
@@ -15,6 +16,9 @@ function Support() {
 
   return (
     <div className="support">
+    <Helmet>
+        <title>Memberstock - Support</title>
+      </Helmet>
       <div className="supportMsg">
         <form onSubmit={submitTicket}>
           <label htmlFor="subject">Subject</label>

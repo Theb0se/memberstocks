@@ -7,8 +7,9 @@ import Moment from "react-moment";
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
-function Trackorder() {
+function Trackorder(props) {
   const { user } = DataState();
   const [isloading, setisloading] = useState();
   const [allOrder, setallOrder] = useState([]);
@@ -18,6 +19,7 @@ function Trackorder() {
 
   useEffect(() => {
     setisloading(true);
+    props.setbarLoading(true);
     const data = {
       userId: user?.id,
     };
@@ -36,11 +38,13 @@ function Trackorder() {
         setallOrdermain(dtr);
         console.log(dtr);
         setisloading(false);
+        props.setbarLoading(false);
       })
 
       .catch(function (error) {
         console.log(error);
         setisloading(false);
+        props.setbarLoading(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
@@ -49,6 +53,9 @@ function Trackorder() {
 
   return (
     <div className="trackOrder">
+    <Helmet>
+        <title>Memberstock - Track Orders</title>
+      </Helmet>
       <div className="filter">
         <button
           value={""}

@@ -5,8 +5,9 @@ import paytm from "../../images/paytm.jpg";
 import phonepe from "../../images/ppay.jpg";
 import gpay from "../../images/gpay.jpg";
 import { Button } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 
-function Addfund() {
+function Addfund(props) {
   const [method, setmethod] = useState("paytm");
   const [loading, setloading] = useState(false);
   const [orderId, setorderId] = useState();
@@ -20,16 +21,20 @@ function Addfund() {
     };
 
     console.log(data);
-
     setloading(true);
+    props.setbarLoading(true);
     setTimeout(() => {
       setloading(false);
       alert("Service Coming Soon");
+      props.setbarLoading(false);
     }, 3000);
   };
 
   return (
     <div className="addfund">
+      <Helmet>
+        <title>Memberstock - Add Fund</title>
+      </Helmet>
       <div className="paymentCard">
         <label htmlFor="method">Method</label>
         <select

@@ -16,7 +16,7 @@ import Services from "./pages/Services/Services";
 import Update from "./pages/Update/Update";
 import Account from "./pages/Account/Account";
 import Support from "./pages/Support/Support";
-import Addfund from './pages/Addfund/Addfund';
+import Addfund from "./pages/Addfund/Addfund";
 
 function App() {
   const [barLoading, setbarLoading] = useState(false);
@@ -28,14 +28,14 @@ function App() {
       <div className="app">
         <Topbar barLoading={barLoading} setbarLoading={setbarLoading} />
         <Navbar setbarLoading={setbarLoading} />
-        <Routes>
+        <Routes >
           <Route
             path="/"
             element={
               user ? (
-                <Order barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Order setbarLoading={setbarLoading} />
               ) : (
-                <Home barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Home setbarLoading={setbarLoading} />
               )
             }
           />
@@ -43,17 +43,15 @@ function App() {
             path="/memberstocks"
             element={
               user ? (
-                <Order barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Order setbarLoading={setbarLoading} />
               ) : (
-                <Home barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Home setbarLoading={setbarLoading} />
               )
             }
           />
           <Route
             path="/signup"
-            element={
-              <Signup barLoading={barLoading} setbarLoading={setbarLoading} />
-            }
+            element={<Signup setbarLoading={setbarLoading} />}
           />
           <Route path="api" element={<Home />} />
           <Route path="contact" element={<Contact />} />
@@ -62,19 +60,28 @@ function App() {
             path="/order"
             element={
               user ? (
-                <Order barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Order setbarLoading={setbarLoading} />
               ) : (
-                <Home barLoading={barLoading} setbarLoading={setbarLoading} />
+                <Home setbarLoading={setbarLoading} />
               )
             }
           />
 
-          <Route path="trackorder" element={<Trackorder />} />
+          <Route
+            path="trackorder"
+            element={<Trackorder setbarLoading={setbarLoading} />}
+          />
           <Route path="services" element={<Services />} />
           <Route path="update" element={<Update />} />
-          <Route path="account" element={<Account />} />
+          <Route
+            path="account"
+            element={<Account setbarLoading={setbarLoading} />}
+          />
           <Route path="support" element={<Support />} />
-          <Route path="fund" element={<Addfund />} />
+          <Route
+            path="fund"
+            element={<Addfund setbarLoading={setbarLoading} />}
+          />
         </Routes>
         <Footer />
       </div>

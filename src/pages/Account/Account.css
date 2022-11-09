@@ -95,6 +95,17 @@
   background-color: var(--orng);
 }
 
+.css-15cm8pl {
+  margin-top: 20px;
+  color: #ff8355 !important;
+  background: rgba(255, 131, 85, 0.2) !important;
+}
+.css-8zqf8h {
+  margin-top: 20px;
+  color: #26a25e !important;
+  background: rgba(25, 200, 104, 0.2) !important;
+}
+
 @media screen and (max-width: 767px) {
   .card {
     width: 93vw;

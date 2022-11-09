@@ -25,11 +25,15 @@ import {
   ModalFooter,
   ModalBody,
 } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 
 function Services() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div className="services">
+      <Helmet>
+        <title>Memberstock - Services</title>
+      </Helmet>
       <div className="search">
         <InputGroup>
           <InputRightElement

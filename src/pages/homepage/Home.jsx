@@ -1,6 +1,7 @@
 import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { DataState } from "../../Context/DataContext";
 import "./Home.css";
@@ -69,6 +70,9 @@ function Home(props) {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>Memberstock - Login</title>
+      </Helmet>
       <div className="homeHeading">
         <h1>WELCOME</h1>
         <h2>INDIA'S #1</h2>

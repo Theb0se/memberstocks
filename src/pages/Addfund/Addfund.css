@@ -51,7 +51,7 @@
 }
 
 .paymentCard .warning {
-  background-color: rgba(252, 64, 64, 0.568) !important;
+  background-color: rgba(252, 64, 64, 0.349) !important;
   text-align: center;
   height: 40px;
   display: flex;
@@ -70,7 +70,7 @@
 .paymentCard .img {
   padding: 20px;
 }
-.img img {
+.paymentCard .img img {
   border-radius: 5px;
   width: 100%;
   height: auto;
@@ -94,7 +94,7 @@
 
 .impNote {
   margin-top: 22px;
-  background-color: var(--orng);
+  background-color: #ff703c98;
   padding: 4px;
   border-radius: 3px;
   font-weight: 700;

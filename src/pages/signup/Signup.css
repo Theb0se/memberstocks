@@ -22,3 +22,23 @@
   color: var(--orng);
   font-weight: 500;
 }
+
+.css-15cm8pl {
+  margin-top: 57px;
+  color: #ff8355 !important;
+  background: rgba(255, 131, 85, 0.2) !important;
+}
+.css-8zqf8h {
+  margin-top: 57px;
+  color: #26a25e !important;
+  background: rgba(25, 200, 104, 0.2) !important;
+}
+
+.chakra-alert__icon,
+.chakra-alert__icon {
+  display: none !important;
+}
+.css-15cm8pl button,
+.css-8zqf8h button {
+  margin-top: 6px;
+}

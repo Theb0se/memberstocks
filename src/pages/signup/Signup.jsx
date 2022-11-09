@@ -1,6 +1,7 @@
 import { Checkbox, Spinner, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 
@@ -56,16 +57,7 @@ function Signup() {
               isClosable: true,
               position: "top",
             });
-            setTimeout(() => {
-              toast({
-                title: `welcome  ${response.data.name}.`,
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "top",
-              });
-              navigate("order");
-            }, 900);
+            navigate("/");
           })
           .catch(function (error) {
             console.log(error);
@@ -94,6 +86,9 @@ function Signup() {
 
   return (
     <div className="signupPage">
+      <Helmet>
+        <title>Memberstock - Signup</title>
+      </Helmet>
       <div className="loginForm">
         <h2>Sign Up</h2>
         <form onSubmit={Signup}>

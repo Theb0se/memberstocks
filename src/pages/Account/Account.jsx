@@ -15,8 +15,9 @@ import React from "react";
 import { useState } from "react";
 import { DataState } from "../../Context/DataContext";
 import "./Account.css";
+import { Helmet } from "react-helmet";
 
-function Account() {
+function Account(props) {
   const { user, setisLogin, isLogin } = DataState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [NewEmail, setNewEmail] = useState();
@@ -31,6 +32,7 @@ function Account() {
 
   const ChnageEmail = () => {
     setisLoadingEmail(true);
+    props.setbarLoading(true);
     const data = {
       email: NewEmail,
       password: password,
@@ -46,6 +48,7 @@ function Account() {
         localStorage.setItem("user", userData);
         setisLogin(isLogin ? false : true);
         setisLoadingEmail(false);
+        props.setbarLoading(false);
         setNewEmail("");
         setpassword("");
         toast({
@@ -55,6 +58,7 @@ function Account() {
           isClosable: true,
           position: "top",
         });
+        props.setbarLoading(false);
       })
       .catch(function (error) {
         toast({
@@ -65,6 +69,7 @@ function Account() {
           position: "top",
         });
         setisLoadingEmail(false);
+        props.setbarLoading(false);
       });
   };
 
@@ -88,6 +93,7 @@ function Account() {
       });
     } else {
       setisLoadingpass(true);
+      props.setbarLoading(true);
       const data = {
         email: user.email,
         userId: user.id,
@@ -108,9 +114,11 @@ function Account() {
             isClosable: true,
             position: "top",
           });
+          props.setbarLoading(false);
         })
         .catch(function (error) {
           setisLoadingpass(false);
+          props.setbarLoading(false);
           toast({
             title: error.response.data,
             status: "error",
@@ -124,6 +132,9 @@ function Account() {
 
   return (
     <div className="account">
+      <Helmet>
+        <title>Memberstock - Account</title>
+      </Helmet>
       <div className="card emailchng">
         <label htmlFor="name">User Name</label>
         <input type="text" disabled value={user?.name} />

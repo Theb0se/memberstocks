@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import "./Terms.css";
 
 function Terms() {
   return (
     <div className="terms">
+      <Helmet>
+        <title>Memberstock - Terms & Condition</title>
+      </Helmet>
       <div className="termsDiv">
         <div className="termsHeadng">
           <h1>Terms And Conditions</h1>

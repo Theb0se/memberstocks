@@ -11,7 +11,6 @@ function Topbar(props) {
     }
   }, [props.barLoading]);
 
-  console.log(props.barLoading);
   return (
     <>
       <LoadingBar ref={ref} color="#ff8355" height={3} />
