@@ -28,7 +28,7 @@ function App() {
       <div className="app">
         <Topbar barLoading={barLoading} setbarLoading={setbarLoading} />
         <Navbar setbarLoading={setbarLoading} />
-        <Routes >
+        <Routes>
           <Route
             path="/"
             element={

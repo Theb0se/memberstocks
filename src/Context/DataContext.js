@@ -7,10 +7,8 @@ function DataContext({ children }) {
   const [isLogin, setisLogin] = useState();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(sessionStorage.getItem("user"));
     setuser(user);
-    console.log(user);
-
   }, [isLogin]);
 
   return (

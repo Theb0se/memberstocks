@@ -50,6 +50,8 @@ function Order(props) {
             const orderData = {
               orderNumber: msg.order,
               userId: user.id,
+              email: user.email,
+              username: user.name,
               service:
                 "1 - Telegram Members { Non Drop } ( 10 / Day ) ( Max - 20K ) | Instant Start | Best Working - ₹ 120 Per 1000",
               link: Link,

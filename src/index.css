@@ -26,28 +26,6 @@ body {
   text-transform: capitalize;
   box-sizing: border-box !important;
 }
-.highlight {
-  color: var(--green);
-  text-transform: capitalize;
-  cursor: pointer;
-  position: relative;
-}
-.highlight::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--green);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.highlight:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
 
 ::selection {
   background-color: var(--orng);

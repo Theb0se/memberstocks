@@ -29,7 +29,6 @@ function Home(props) {
           const data = response.data;
           setisloading(false);
           const user = JSON.stringify(data);
-          localStorage.setItem("user", user);
           sessionStorage.setItem("user", user);
           setisLogin(isLogin ? false : true);
           toast({

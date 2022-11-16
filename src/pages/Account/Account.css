@@ -93,6 +93,7 @@
 .password .btn button,
 .password .btn button:hover {
   background-color: var(--orng);
+  border-bottom: 2px solid #ea5923;
 }
 
 .css-15cm8pl {

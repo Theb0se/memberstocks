@@ -69,9 +69,7 @@ function Navbar(props) {
               <Link to={"support"}>
                 <li className={pathName === "/support" && "active"}>Support</li>
               </Link>
-              <Link to={"update"}>
-                <li className={pathName === "/update" && "active"}>Update</li>
-              </Link>
+
               <Link to={"account"}>
                 <li className={pathName === "/account" && "active"}>Account</li>
               </Link>
@@ -81,7 +79,7 @@ function Navbar(props) {
                   setTimeout(() => {
                     setisLogin(isLogin ? false : true);
                     props.setbarLoading(false);
-                    localStorage.removeItem("user");
+                    sessionStorage.removeItem("user");
                     navigate("/");
                   }, 2200);
                 }}
@@ -143,9 +141,6 @@ function Navbar(props) {
             <Link to={"support"} onClick={hamOpen}>
               <li className={pathName === "/support" && "active"}>Support</li>
             </Link>
-            <Link to={"update"} onClick={hamOpen}>
-              <li className={pathName === "/update" && "active"}>Update</li>
-            </Link>
             <Link to={"account"} onClick={hamOpen}>
               <li className={pathName === "/account" && "active"}>Account</li>
             </Link>
@@ -155,7 +150,7 @@ function Navbar(props) {
                 setTimeout(() => {
                   setisLogin(isLogin ? false : true);
                   props.setbarLoading(false);
-                  localStorage.removeItem("user");
+                  sessionStorage.removeItem("user");
                   navigate("/");
                   isOpen ? setOpen(false) : setOpen(true);
                 }, 2200);

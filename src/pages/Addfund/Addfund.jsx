@@ -93,7 +93,7 @@ function Addfund(props) {
 
         {/* pay */}
         <div className={method === "phonepe" ? "db" : "dn"}>
-          <label htmlFor="orderid">Transection Id</label>
+          <label htmlFor="orderid">Transaction Id</label>
           <input
             type="text"
             name="orderid"
@@ -128,7 +128,7 @@ function Addfund(props) {
 
         {/* gpay */}
         <div className={method === "gpay" ? "db" : "dn"}>
-          <label htmlFor="orderid">UPI Transection Id</label>
+          <label htmlFor="orderid">UPI Transaction Id</label>
           <input
             type="text"
             name="orderid"

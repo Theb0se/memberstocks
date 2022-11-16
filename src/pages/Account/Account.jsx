@@ -45,7 +45,7 @@ function Account(props) {
       .then(function (response) {
         console.log(response.data);
         const userData = JSON.stringify(response.data);
-        localStorage.setItem("user", userData);
+        sessionStorage.setItem("user", userData);
         setisLogin(isLogin ? false : true);
         setisLoadingEmail(false);
         props.setbarLoading(false);
@@ -59,6 +59,7 @@ function Account(props) {
           position: "top",
         });
         props.setbarLoading(false);
+        
       })
       .catch(function (error) {
         toast({
@@ -145,7 +146,13 @@ function Account(props) {
         </div>
 
         <div className="model">
-          <Button onClick={onOpen} mt="5" size="md" background="#ff8355">
+          <Button
+            onClick={onOpen}
+            mt="5"
+            size="md"
+            background="#ff8355"
+            borderBottom={"2px solid #ea5923"}
+          >
             Change Email
           </Button>
           <Modal
