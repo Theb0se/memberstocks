@@ -1,5 +1,5 @@
 {
-  "homepage": "https://theb0se.github.io/memberstocks",
+  "homepage": "http://memberstocks.com/",
   "name": "memberstocks",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "framer-motion": "^7.6.1",
     "hamburger-react": "^2.5.0",
     "nextjs-progressbar": "^0.0.16",
+    "random-int": "^3.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-burger-menu": "^3.0.8",

@@ -24,7 +24,7 @@ function Home(props) {
 
     try {
       axios
-        .post("https://smmboostclub.herokuapp.com/user/login", data)
+        .post("https://memberstocksserver.onrender.com/user/login", data)
         .then(function (response) {
           const data = response.data;
           setisloading(false);

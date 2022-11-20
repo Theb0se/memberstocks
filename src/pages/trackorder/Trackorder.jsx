@@ -24,7 +24,7 @@ function Trackorder(props) {
       userId: user?.id,
     };
     axios
-      .post("https://smmboostclub.herokuapp.com/order/getOrder", data)
+      .post("https://memberstocksserver.onrender.com/order/getOrder", data)
       .then(function (response) {
         const data1 = response.data.order;
         const data2 = response.data.orders;

@@ -41,7 +41,7 @@ function Account(props) {
     };
 
     axios
-      .post("https://smmboostclub.herokuapp.com/user/updateEmail", data)
+      .post("https://memberstocksserver.onrender.com/user/updateEmail", data)
       .then(function (response) {
         console.log(response.data);
         const userData = JSON.stringify(response.data);
@@ -102,7 +102,7 @@ function Account(props) {
         password: NewPass,
       };
       axios
-        .post("https://smmboostclub.herokuapp.com/user/updatePassword", data)
+        .post("https://memberstocksserver.onrender.com/user/updatePassword", data)
         .then(function (response) {
           setisLoadingpass(false);
           setNewPass("");

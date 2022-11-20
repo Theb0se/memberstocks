@@ -135,6 +135,7 @@ function Navbar(props) {
                 Track Order
               </li>
             </Link>
+            
             <Link to="fund" onClick={hamOpen}>
               <li className={pathName === "/fund" && "active"}>Add Fund</li>
             </Link>

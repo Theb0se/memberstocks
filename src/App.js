@@ -21,7 +21,6 @@ import Addfund from "./pages/Addfund/Addfund";
 function App() {
   const [barLoading, setbarLoading] = useState(false);
   const { user } = DataState();
-  console.log(user);
 
   return (
     <ChakraProvider>

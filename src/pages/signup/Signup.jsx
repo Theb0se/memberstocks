@@ -47,7 +47,7 @@ function Signup() {
       };
       try {
         axios
-          .post("https://smmboostclub.herokuapp.com/user/signup", data)
+          .post("https://memberstocksserver.onrender.com/user/signup", data)
           .then(function (response) {
             setisloading(false);
             toast({

@@ -33,7 +33,7 @@ function Order(props) {
       };
       console.log(newOrder);
       axios
-        .post("https://smmboostclub.herokuapp.com/neworder", newOrder)
+        .post("https://memberstocksserver.onrender.com/neworder", newOrder)
         .then(function (response) {
           const msg = response.data;
           console.log(msg);
@@ -60,7 +60,7 @@ function Order(props) {
 
             axios
               .post(
-                "https://smmboostclub.herokuapp.com/order/postOrder",
+                "https://memberstocksserver.onrender.com/order/postOrder",
                 orderData
               )
               .then(function (response) {

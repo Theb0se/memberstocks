@@ -4,37 +4,47 @@ import "./Addfund.css";
 import paytm from "../../images/paytm.jpg";
 import phonepe from "../../images/ppay.jpg";
 import gpay from "../../images/gpay.jpg";
-import { Button } from "@chakra-ui/react";
-import { Helmet } from "react-helmet";
+import { DataState } from "../../Context/DataContext";
+import axios from "axios";
+import { Spinner } from "@chakra-ui/react";
 
 function Addfund(props) {
   const [method, setmethod] = useState("paytm");
   const [loading, setloading] = useState(false);
   const [orderId, setorderId] = useState();
   const [amount, setamount] = useState();
+  const { user } = DataState();
 
-  const checkPayment = () => {
+  const checkPayment = (e) => {
+    e.preventDefault();
     const data = {
-      method,
-      orderId,
-      amount,
+      userId: user.id,
+      username: user.name,
+      method: method,
+      transactionID: orderId,
+      amount: amount,
     };
-
-    console.log(data);
     setloading(true);
     props.setbarLoading(true);
-    setTimeout(() => {
-      setloading(false);
-      alert("Service Coming Soon");
-      props.setbarLoading(false);
-    }, 3000);
+    axios
+      .post("https://memberstocksserver.onrender.com/payment/addPaymentRequest", data)
+      .then(function (response) {
+        const msg = response.data;
+        console.log(msg);
+        setloading(false);
+        props.setbarLoading(false);
+        setorderId("");
+        setamount("");
+      })
+      .catch(function (error) {
+        console.log(error);
+        setloading(false);
+        props.setbarLoading(false);
+      });
   };
 
   return (
     <div className="addfund">
-      <Helmet>
-        <title>Memberstock - Add Fund</title>
-      </Helmet>
       <div className="paymentCard">
         <label htmlFor="method">Method</label>
         <select
@@ -42,46 +52,46 @@ function Addfund(props) {
           id="method"
           onChange={(e) => {
             setmethod(e.target.value);
+            setloading(false);
           }}
         >
-          <option value="paytm" id="SelectPaytm">
-            Paytm QR ( Minimum 100 ₹ )
-          </option>
-          <option value="phonepe" id="SelectPhonepe">
-            PhonePe QR ( Minimum 100 ₹ )
-          </option>
-          <option value="gpay" id="SelectGpay">
-            Gpay QR ( Minimum 100 ₹ )
-          </option>
+          <option value="paytm">Paytm QR ( Minimum 100 ₹ )</option>
+          <option value="phonepe">PhonePe QR ( Minimum 100 ₹ )</option>
+          <option value="gpay">Gpay QR ( Minimum 100 ₹ )</option>
         </select>
         <br />
         <br />
         {/* paytm */}
         <div className={method === "paytm" ? "db" : "dn"}>
-          <label htmlFor="orderid">Order Id</label>
-          <input
-            type="text"
-            name="orderid"
-            id="orderid"
-            onChange={(e) => {
-              setorderId(e.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <label htmlFor="amount">Amount</label>
-          <input
-            type="tel"
-            name="amount"
-            id="amount"
-            onChange={(e) => {
-              setamount(e.target.value);
-            }}
-          />
-          <br />
-          <Button isLoading={loading} onClick={checkPayment}>
-            Check
-          </Button>
+          <form onSubmit={checkPayment}>
+            <label htmlFor="orderid">Order Id</label>
+            <input
+              type="text"
+              name="orderid"
+              id="orderid"
+              value={orderId}
+              required
+              onChange={(e) => {
+                setorderId(e.target.value);
+              }}
+              autocomplete="off"
+            />
+            <br />
+            <br />
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="tel"
+              name="amount"
+              id="amount"
+              value={amount}
+              onChange={(e) => {
+                setamount(parseFloat(e.target.value));
+              }}
+              required
+            />
+            <br />
+            <button>{loading ? <Spinner /> : "Check"}</button>
+          </form>
           <br />
           <br />
           <div className="warning">Warning - Always Scan Latest QR Code</div>
@@ -93,30 +103,35 @@ function Addfund(props) {
 
         {/* pay */}
         <div className={method === "phonepe" ? "db" : "dn"}>
-          <label htmlFor="orderid">Transaction Id</label>
-          <input
-            type="text"
-            name="orderid"
-            id="orderid"
-            onChange={(e) => {
-              setorderId(e.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <label htmlFor="amount">Amount</label>
-          <input
-            type="tel"
-            name="amount"
-            id="amount"
-            onChange={(e) => {
-              setamount(e.target.value);
-            }}
-          />
-          <br />
-          <Button isLoading={loading} onClick={checkPayment}>
-            Check
-          </Button>
+          <form onSubmit={checkPayment}>
+            <label htmlFor="orderid">Transaction Id</label>
+            <input
+              type="text"
+              name="orderid"
+              id="orderid"
+              value={orderId}
+              required
+              onChange={(e) => {
+                setorderId(e.target.value);
+              }}
+              autocomplete="off"
+            />
+            <br />
+            <br />
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="tel"
+              name="amount"
+              id="amount"
+              value={amount}
+              required
+              onChange={(e) => {
+                setamount(e.target.value);
+              }}
+            />
+            <br />
+            <button>{loading ? <Spinner /> : "Check"}</button>
+          </form>
           <br />
           <br />
           <div className="warning">Warning - Always Scan Latest QR Code</div>
@@ -128,30 +143,33 @@ function Addfund(props) {
 
         {/* gpay */}
         <div className={method === "gpay" ? "db" : "dn"}>
-          <label htmlFor="orderid">UPI Transaction Id</label>
-          <input
-            type="text"
-            name="orderid"
-            id="orderid"
-            onChange={(e) => {
-              setorderId(e.target.value);
-            }}
-          />
-          <br />
-          <br />
-          <label htmlFor="amount">Amount</label>
-          <input
-            type="tel"
-            name="amount"
-            id="amount"
-            onChange={(e) => {
-              setamount(e.target.value);
-            }}
-          />
-          <br />
-          <Button isLoading={loading} onClick={checkPayment}>
-            Check
-          </Button>
+          <form onSubmit={checkPayment}>
+            <label htmlFor="orderid">UPI Transaction Id</label>
+            <input
+              type="text"
+              name="orderid"
+              id="orderid"
+              value={orderId}
+              onChange={(e) => {
+                setorderId(e.target.value);
+              }}
+              autocomplete="off"
+            />
+            <br />
+            <br />
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="tel"
+              name="amount"
+              id="amount"
+              value={amount}
+              onChange={(e) => {
+                setamount(e.target.value);
+              }}
+            />
+            <br />
+            <button>{loading ? <Spinner /> : "Check"}</button>
+          </form>
           <br />
           <br />
           <div className="warning">Warning - Always Scan Latest QR Code</div>

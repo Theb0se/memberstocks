@@ -11,7 +11,7 @@
 .tickets {
   max-width: 600px;
   width: 600px;
-  padding: 20px;
+  padding: 20px 10px;
   background-color: var(--gray);
   border-radius: 9px;
   margin-top: 20px;
@@ -68,7 +68,7 @@
 }
 
 .tickets table {
-  width: 500px;
+  width: 800px;
 }
 
 .tickets table thead tr {
@@ -83,11 +83,10 @@
 
 .tickets table thead tr th {
   padding: 5px 10px 5px 0;
-  text-align: center;
+  text-align: left;
 }
 .tickets table tbody tr td {
   padding: 8px 10px 8px 0;
-  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -95,6 +94,6 @@
   .tickets {
     width: 93vw;
     max-width: 93vw;
-    padding: 12px;
+    padding: 12px ;
   }
 }
