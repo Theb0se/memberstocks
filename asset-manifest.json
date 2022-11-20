@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.5bbbc586.css",
-    "main.js": "/static/js/main.574cd6a7.js",
+    "main.js": "/static/js/main.e850dd0d.js",
     "static/media/gpay.jpg": "/static/media/gpay.a55daf65e93d35a475e5.jpg",
     "static/media/ppay.jpg": "/static/media/ppay.c81e1098d496ddf68505.jpg",
     "static/media/whatsapp.gif": "/static/media/whatsapp.58d65e32d529b7af63b2.gif",
     "static/media/paytm.jpg": "/static/media/paytm.c3bbbb718b8d19cbfb9f.jpg",
     "index.html": "/index.html",
     "main.5bbbc586.css.map": "/static/css/main.5bbbc586.css.map",
-    "main.574cd6a7.js.map": "/static/js/main.574cd6a7.js.map"
+    "main.e850dd0d.js.map": "/static/js/main.e850dd0d.js.map"
   },
   "entrypoints": [
     "static/css/main.5bbbc586.css",
-    "static/js/main.574cd6a7.js"
+    "static/js/main.e850dd0d.js"
   ]
 }
